@@ -1,0 +1,16 @@
+<h1>Editar Cliente</h1>
+<hr>
+
+<div class="container">
+    <%= render 'form', cliente: @cliente %>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+    <%= link_to 'Mostrar', @cliente, class:"btn btn-success" %>
+    <%= link_to 'Voltar', clientes_path, class:"btn btn-secondary" %>
+</div>
+
+<script>
+  $(document).ready(function(){
+  });
+</script>
