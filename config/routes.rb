@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :atividades
+  resources :tarefas
+  resources :tipo_de_projetos
   resources :clientes
   root 'pages#home'
   devise_for :users

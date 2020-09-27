@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atividades</h1>
+
+<table class="table" style="margin-top:2rem">
+  <thead class="thead-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Tipo de tarefa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atividades.each do |atividade| %>
+      <tr>
+        <td><%= atividade.nome %></td>
+        <td><%= atividade.tipo_de_tarefa_id %></td>
+        <td><%= link_to 'Mostrar', atividade, class:"btn btn-success" %></td>
+        <td><%= link_to 'Editar', edit_atividade_path(atividade), class:"btn btn-info" %></td>
+        <td><%= link_to 'Excluir', atividade, method: :delete, data: { confirm: 'Você tem certeza disso?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

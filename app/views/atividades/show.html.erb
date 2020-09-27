@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atividade</h1>
+<hr>
+
+<div class="container-fluid" style="margin-top:4rem">
+  <div class="row">
+    <div class="col-6">
+      <p>
+        <strong>Nome da atividade</strong>
+        <%= @atividade.nome %>
+      </p>
+    </div>
+
+    <div class="col-6">
+      <p>
+        <strong>Tipo de tarefa:</strong>
+        <%= @atividade.tipo_de_tarefa_id %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+  <%= link_to 'Editar', edit_atividade_path(@atividade), class: "btn btn-info" %> 
+  <%= link_to 'Voltar', atividades_path , class: "btn btn-secondary" %>
+</div>

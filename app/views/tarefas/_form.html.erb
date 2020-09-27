@@ -1,0 +1,54 @@
+<%= form_with(model: tarefa, local: true) do |form| %>
+  <% if tarefa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tarefa.errors.count, "error") %> Há outra tarefa com os mesmos dados</h2>
+
+      <ul>
+        <% tarefa.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label><strong>Nome</strong></label>
+        <%= form.text_field :nome, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="form-group">
+        <label><strong>Código</strong></label>
+        <%= form.text_field :codigo, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="form-group">
+        <label><strong>Tipo de Projeto</strong></label>
+        <%= form.text_field :tipo_de_projeto_id, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="form-group">
+        <label><strong>Valor</strong></label>
+        <%= form.text_field :valor, class:"form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="actions" style="text-align:center">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+<% end %>

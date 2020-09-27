@@ -1,0 +1,11 @@
+<h1>Editar Atividade</h1>
+<hr>
+
+<div class="container">
+    <%= render 'form', atividade: @atividade %>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+    <%= link_to 'Mostrar', @atividade, class:"btn btn-success" %>
+    <%= link_to 'Voltar', atividades_path, class:"btn btn-secondary" %>
+</div>

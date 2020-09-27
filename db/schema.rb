@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_215621) do
+ActiveRecord::Schema.define(version: 2020_09_27_210946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "atividades", force: :cascade do |t|
+    t.string "nome"
+    t.string "tipo_de_tarefa_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
@@ -27,6 +34,28 @@ ActiveRecord::Schema.define(version: 2020_09_26_215621) do
     t.integer "cep"
     t.string "cidade"
     t.string "estado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "nome"
+    t.string "obs"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tarefas", force: :cascade do |t|
+    t.string "nome"
+    t.string "codigo"
+    t.string "tipo_de_projeto_id"
+    t.float "valor"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tipo_de_projetos", force: :cascade do |t|
+    t.string "tipo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tag</h1>
+<hr>
+
+<div class="container-fluid" style="margin-top:4rem">
+  <div class="row">
+    <div class="col-5">
+      <p>
+        <strong>Nome:</strong>
+        <%= @tag.nome %>
+      </p>
+    </div>
+
+    <div class="col-7">
+      <p>
+        <strong>Obs:</strong>
+        <%= @tag.obs %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+  <%= link_to 'Editar', edit_tag_path(@tag), class: "btn btn-info" %> 
+  <%= link_to 'Voltar', tags_path , class: "btn btn-secondary" %>
+</div>
