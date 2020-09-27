@@ -1,0 +1,12 @@
+<h1>Editar Tag</h1>
+<hr>
+
+<div class="container">
+    <%= render 'form', tag: @tag %>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+    <%= link_to 'Mostrar', @tag, class:"btn btn-success" %>
+    <%= link_to 'Voltar', tags_path, class:"btn btn-secondary" %>
+</div>
+

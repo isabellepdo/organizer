@@ -1,0 +1,11 @@
+<h1>Editar Tarefa</h1>
+<hr>
+
+<div class="container">
+    <%= render 'form', tarefa: @tarefa %>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+    <%= link_to 'Mostrar', @tarefa, class:"btn btn-success" %>
+    <%= link_to 'Voltar', tarefas_path, class:"btn btn-secondary" %>
+</div>

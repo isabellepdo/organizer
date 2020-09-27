@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cliente</h1>
+<hr>
+
+<div class="container-fluid" style="margin-top:4rem">
+  <div class="row">
+    <div class="col-9">
+      <p>
+        <strong>Nome do tipo:</strong>
+        <%= @tipo_de_projeto.tipo %>
+      </p>
+    </div>
+  </div>
+</p>
+
+<div class="float-sm-right" style="margin-top:3rem">
+  <%= link_to 'Editar', edit_tipo_de_projeto_path(@tipo_de_projeto), class: "btn btn-info" %> 
+  <%= link_to 'Voltar', tipo_de_projetos_path , class: "btn btn-secondary" %>
+</div>
