@@ -1,0 +1,82 @@
+<%= form_with(model: projeto, local: true) do |form| %>
+  <% if projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
+
+      <ul>
+        <% projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <hr>
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <label><strong>Código</strong></label>
+        <%= form.text_field :codigo, class:"form-control" %>
+      </div>
+    </div>
+
+      <div class="col-9">
+        <div class="form-group">
+          <label><strong>Nome do Projeto</strong></label>
+          <%= form.text_field :nome, class:"form-control" %>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-12">
+      <div class="form-group">
+        <label><strong>Descrição</strong></label>
+        <%= form.text_field :descricao, class:"form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+  
+    <div class="col-3">
+      <div class="form-group">
+        <label><strong>Status</strong></label>
+        <%= form.text_field :status, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group">
+        <label><strong>Tipo</strong></label>
+        <%= form.text_field :tipo, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group">
+        <label><strong>Cliente</strong></label>
+        <%= form.text_field :cliente_id, class:"form-control" %>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-group">
+        <label><strong>Prazo Final</strong></label>
+        <%= form.date_field :prazo, class:"form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="actions" style="text-align:center">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+<% end %>

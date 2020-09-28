@@ -1,0 +1,11 @@
+<h1>Editar Projeto</h1>
+<hr>
+
+<div class="container">
+    <%= render 'form', projeto: @projeto %>
+</div>
+
+<div class="float-sm-right" style="margin-top:3rem">
+    <%= link_to 'Mostrar', @projeto, class:"btn btn-success" %>
+    <%= link_to 'Voltar', projetos_path, class:"btn btn-secondary" %>
+</div>
