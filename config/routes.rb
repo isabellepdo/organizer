@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :atividade_da_tarefa_por_projetos
+  resources :tarefa_do_projetos
   resources :observacao_do_projetos
   resources :observacoes_do_projetos
   resources :observacos

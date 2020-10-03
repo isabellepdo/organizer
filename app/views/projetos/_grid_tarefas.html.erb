@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <%= link_to 'Adicionar Tarefas', new_tarefa_do_projeto_path, class:"btn btn-info" %>
+  <br><br><br>
+
+  <h3>Tarefas</h3>
+  <br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Tarefa</th>
+        <th>Usuario</th>
+        <th>Status</th>
+        <th>Prazo</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projeto.tarefa_do_projetos.each do |tarefa_do_projeto| %>
+        <tr>
+          <td><%= tarefa_do_projeto.tarefa.nome %></td>
+          <td><%= tarefa_do_projeto.user.email %></td>
+          <td><%= tarefa_do_projeto.status_formatado %></td>
+          <td><%= tarefa_do_projeto.prazo_formatado %></td>
+          <td><%= link_to 'Mostrar', tarefa_do_projeto, class:"btn btn-info" %></td>
+          <td><%= link_to 'Editar', edit_tarefa_do_projeto_path(tarefa_do_projeto), class:"btn btn-warning" %></td>
+          <td><%= link_to 'Excluir', tarefa_do_projeto, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

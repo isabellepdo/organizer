@@ -4,6 +4,7 @@ class Projeto < ApplicationRecord
     belongs_to :cliente
 
     has_many :observacoes_do_projeto
+    has_many :tarefa_do_projetos
 
     enum status: {
         aguardando: 0,
