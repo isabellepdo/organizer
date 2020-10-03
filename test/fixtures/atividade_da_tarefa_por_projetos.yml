@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tarefa_do_projetos: one
+  nome: MyString
+  status: 1
+  prazo: 2020-10-03
+
+two:
+  tarefa_do_projetos: two
+  nome: MyString
+  status: 1
+  prazo: 2020-10-03

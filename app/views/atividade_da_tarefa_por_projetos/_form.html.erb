@@ -1,0 +1,37 @@
+<%= form_with(model: atividade_da_tarefa_por_projeto, local: true) do |form| %>
+  <% if atividade_da_tarefa_por_projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(atividade_da_tarefa_por_projeto.errors.count, "error") %> prohibited this atividade_da_tarefa_por_projeto from being saved:</h2>
+
+      <ul>
+        <% atividade_da_tarefa_por_projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tarefa_do_projetos_id %>
+    <%= form.text_field :tarefa_do_projetos_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prazo %>
+    <%= form.date_select :prazo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

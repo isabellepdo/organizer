@@ -1,0 +1,52 @@
+<%= form_with(model: tarefa_do_projeto, local: true) do |form| %>
+  <% if tarefa_do_projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tarefa_do_projeto.errors.count, "error") %> prohibited this tarefa_do_projeto from being saved:</h2>
+
+      <ul>
+        <% tarefa_do_projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prazo %>
+    <%= form.date_select :prazo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_nuvem %>
+    <%= form.text_field :link_nuvem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tarefa_id %>
+    <%= form.text_field :tarefa_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :projeto_id %>
+    <%= form.text_field :projeto_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

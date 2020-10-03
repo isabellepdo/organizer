@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tarefa do projetos:</strong>
+  <%= @atividade_da_tarefa_por_projeto.tarefa_do_projetos_id %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @atividade_da_tarefa_por_projeto.nome %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @atividade_da_tarefa_por_projeto.status %>
+</p>
+
+<p>
+  <strong>Prazo:</strong>
+  <%= @atividade_da_tarefa_por_projeto.prazo %>
+</p>
+
+<%= link_to 'Edit', edit_atividade_da_tarefa_por_projeto_path(@atividade_da_tarefa_por_projeto) %> |
+<%= link_to 'Back', atividade_da_tarefa_por_projetos_path %>

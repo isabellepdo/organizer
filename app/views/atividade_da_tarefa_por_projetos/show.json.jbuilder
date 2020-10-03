@@ -1,0 +1,1 @@
+json.partial! "atividade_da_tarefa_por_projetos/atividade_da_tarefa_por_projeto", atividade_da_tarefa_por_projeto: @atividade_da_tarefa_por_projeto

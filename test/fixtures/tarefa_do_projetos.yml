@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  status: 1
+  descricao: MyText
+  prazo: 2020-10-02
+  link_nuvem: MyString
+  tarefa: one
+  projeto: one
+
+two:
+  user: two
+  status: 1
+  descricao: MyText
+  prazo: 2020-10-02
+  link_nuvem: MyString
+  tarefa: two
+  projeto: two
