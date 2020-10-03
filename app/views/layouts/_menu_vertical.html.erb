@@ -1,0 +1,174 @@
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <!--<div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0"><%= current_user.email %></h4>
+        <p class="font-weight-light text-muted mb-0">Web developer</p>
+      </div>
+    </div>-->
+
+    
+
+    <div class="media-body">
+        <h3>Organizer</h3>
+        <h5 class="m-0"><%= current_user.email %></h5>
+        <h6 class="font-weight-light text-muted mb-0">Administrador</h6>
+
+        <hr>
+        <% if user_signed_in? %>
+            <div  style="margin-left: 30px">
+                <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'btn btn-info' %>
+                <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'btn btn-danger'%>
+            </div>
+        <% else %>
+            <div  style="margin-right: 30px">
+                <%= link_to "Registrar-se", new_user_registration_path, :class => 'btn btn-warning' %>
+                <%= link_to "Login", new_user_session_path, :class => 'btn btn-success'  %>
+            </div>
+        <% end %>  
+    </div>
+  </div>
+  
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Alertas</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Quadro de Atividades</a>
+      
+      <br><br>
+      <p style="margin-left:1rem">PROJETO</p>
+      <%= link_to 'Cadastrar', new_projeto_path, class:"nav-link" %>
+      <%= link_to 'Abertos', projetos_path, class:"nav-link" %>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Homologados</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aguardando</a>
+        
+      <br><br>
+      <p style="margin-left:1rem">CLIENTES</p>
+      <%= link_to 'Cadastrar', new_cliente_path, class:"nav-link" %>
+      <%= link_to 'Listar', clientes_path, class:"nav-link" %>
+
+      <br><br>
+      <p style="margin-left:1rem">USÚARIOS</p>
+      <%= link_to 'Cadastrar', new_cliente_path, class:"nav-link" %>
+      <%= link_to 'Listar', clientes_path, class:"nav-link" %>
+
+      <br><br>
+      <p style="margin-left:1rem">BASE DE DADOS</p>
+
+      <h6>Tipo de Projetos</h6> 
+      <%= link_to 'Cadastrar', new_tipo_de_projeto_path, class:"nav-link" %>
+      <%= link_to 'Listar', tipo_de_projetos_path, class:"nav-link" %>
+
+      <h6>Tarefas</h6> 
+      <%= link_to 'Cadastrar', new_tarefa_path, class:"nav-link" %>
+      <%= link_to 'Listar', tarefas_path, class:"nav-link" %>
+
+      <h6>Atividades</h6> 
+      <%= link_to 'Cadastrar', new_atividade_path, class:"nav-link" %>
+      <%= link_to 'Listar', atividades_path, class:"nav-link" %>
+
+      <h6>Tags</h6> 
+      <%= link_to 'Cadastrar', new_tag_path, class:"nav-link" %>
+      <%= link_to 'Listar', tags_path, class:"nav-link" %>
+
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Configurações</a>
+    </div>
+  
+</div>
+<!-- End vertical navbar -->
+
+
+<!-- Page content holder -->
+<div class="page-content p-6" id="content">
+
+</div>
+<!-- End demo content -->
+
+<style>
+.vertical-nav {
+  min-width: 17rem;
+  width: 19rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: 32rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 29rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+
+body {
+  background: #599fd9;
+  background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
+  background: linear-gradient(to right, #599fd9, #c2e59c);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.separator {
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+.text-gray {
+  color: #aaa;
+}
+
+body {
+    font-size: 1.2rem !important;
+}
+
+</style>
+
+<script>
+$(function() {
+  // Sidebar toggle behavior
+  $('#sidebarCollapse').on('click', function() {
+    $('#sidebar, #content').toggleClass('active');
+  });
+});
+</script>

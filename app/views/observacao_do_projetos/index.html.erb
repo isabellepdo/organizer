@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Observacao Do Projetos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Projeto</th>
+      <th>User</th>
+      <th>Mensagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @observacao_do_projetos.each do |observacao_do_projeto| %>
+      <tr>
+        <td><%= observacao_do_projeto.projeto_id %></td>
+        <td><%= observacao_do_projeto.user_id %></td>
+        <td><%= observacao_do_projeto.mensagem %></td>
+        <td><%= link_to 'Show', observacao_do_projeto %></td>
+        <td><%= link_to 'Edit', edit_observacao_do_projeto_path(observacao_do_projeto) %></td>
+        <td><%= link_to 'Destroy', observacao_do_projeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Observacao Do Projeto', new_observacao_do_projeto_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Projeto:</strong>
+  <%= @observacao_do_projeto.projeto_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @observacao_do_projeto.user_id %>
+</p>
+
+<p>
+  <strong>Mensagem:</strong>
+  <%= @observacao_do_projeto.mensagem %>
+</p>
+
+<%= link_to 'Edit', edit_observacao_do_projeto_path(@observacao_do_projeto) %> |
+<%= link_to 'Back', observacao_do_projetos_path %>

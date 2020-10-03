@@ -1,4 +1,7 @@
 class Cliente < ApplicationRecord
+
+    has_many :projetos
+
     def formata_telefone()
         if telefone.present?
             tel_formatado = "("
