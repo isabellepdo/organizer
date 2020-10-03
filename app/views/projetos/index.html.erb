@@ -7,9 +7,9 @@
     <tr>
       <th>Codigo</th>
       <th>Nome</th>
-      <th>Descricao</th>
       <th>Status</th>
       <th>Tipo</th>
+      <th>Prazo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +19,9 @@
       <tr>
         <td><%= projeto.codigo %></td>
         <td><%= projeto.nome %></td>
-        <td><%= projeto.descricao %></td>
-        <td><%= projeto.status %></td>
-        <td><%= projeto.tipo %></td>
+        <td><%= projeto.status_formatado %></td>
+        <td><%= projeto.tipo_de_projeto.tipo %></td>
+        <td><%= projeto.prazo_formatado %></td>
         <td><%= link_to 'Mostrar', projeto, class:"btn btn-success" %></td>
         <td><%= link_to 'Editar', edit_projeto_path(projeto), class:"btn btn-info" %></td>
         <td><%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Você tem certeza disso?' }, class:"btn btn-danger" %></td>

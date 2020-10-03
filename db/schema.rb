@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_020713) do
+ActiveRecord::Schema.define(version: 2020_09_29_000216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "atividades", force: :cascade do |t|
     t.string "nome"
-    t.string "tipo_de_tarefa_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tarefa_id", null: false
+    t.index ["tarefa_id"], name: "index_atividades_on_tarefa_id"
   end
 
   create_table "clientes", force: :cascade do |t|
@@ -38,16 +39,38 @@ ActiveRecord::Schema.define(version: 2020_09_28_020713) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "observacao_do_projetos", force: :cascade do |t|
+    t.bigint "projeto_id", null: false
+    t.bigint "user_id", null: false
+    t.text "mensagem"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["projeto_id"], name: "index_observacao_do_projetos_on_projeto_id"
+    t.index ["user_id"], name: "index_observacao_do_projetos_on_user_id"
+  end
+
+  create_table "observacos_do_projeto", force: :cascade do |t|
+    t.bigint "projeto_id"
+    t.bigint "user_id"
+    t.text "mensagem"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["projeto_id"], name: "index_observacos_do_projeto_on_projeto_id"
+    t.index ["user_id"], name: "index_observacos_do_projeto_on_user_id"
+  end
+
   create_table "projetos", force: :cascade do |t|
     t.string "codigo"
     t.string "nome"
     t.string "descricao"
     t.integer "status"
-    t.integer "tipo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "prazo"
-    t.integer "cliente_id"
+    t.bigint "tipo_de_projeto_id", null: false
+    t.bigint "cliente_id", null: false
+    t.index ["cliente_id"], name: "index_projetos_on_cliente_id"
+    t.index ["tipo_de_projeto_id"], name: "index_projetos_on_tipo_de_projeto_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -60,10 +83,11 @@ ActiveRecord::Schema.define(version: 2020_09_28_020713) do
   create_table "tarefas", force: :cascade do |t|
     t.string "nome"
     t.string "codigo"
-    t.string "tipo_de_projeto_id"
     t.float "valor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tipo_de_projeto_id", null: false
+    t.index ["tipo_de_projeto_id"], name: "index_tarefas_on_tipo_de_projeto_id"
   end
 
   create_table "tipo_de_projetos", force: :cascade do |t|
@@ -84,4 +108,10 @@ ActiveRecord::Schema.define(version: 2020_09_28_020713) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "atividades", "tarefas"
+  add_foreign_key "observacao_do_projetos", "projetos"
+  add_foreign_key "observacao_do_projetos", "users"
+  add_foreign_key "projetos", "clientes"
+  add_foreign_key "projetos", "tipo_de_projetos"
+  add_foreign_key "tarefas", "tipo_de_projetos"
 end

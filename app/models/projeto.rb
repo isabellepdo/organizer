@@ -1,5 +1,10 @@
 class Projeto < ApplicationRecord
 
+    belongs_to :tipo_de_projeto
+    belongs_to :cliente
+
+    has_many :observacoes_do_projeto
+
     enum status: {
         aguardando: 0,
         enviado_orcamento: 1, 
@@ -25,6 +30,10 @@ class Projeto < ApplicationRecord
         else
             statusf = "Sem Status"
         end
+    end
+
+    def prazo_formatado()
+        dataf = prazo.strftime("%m/%d/%Y")
     end
 
 end

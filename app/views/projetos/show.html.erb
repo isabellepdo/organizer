@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <div class="row">
@@ -27,36 +28,38 @@
       </p>
     </div>
   </div>
+  <br>
+  <div class="row">
 
+    <div class="col-10"> 
+      <p>
+        <strong>Tipo</strong><br><br>
+        <%= @projeto.tipo_de_projeto.tipo %>
+      </p>
+    </div>
+
+    <div class="col-2"> 
+      <p>
+        <strong>Prazo</strong><br><br>
+        <%= @projeto.prazo_formatado %>
+      </p>
+    </div>
+
+    
+    <div class="col-6">
+      <p>
+        <strong>Cliente</strong><br><br>
+        <%= @projeto.cliente.nome %>
+      </p>
+    </div>
+  </div>
+
+  <br><br>
   <div class="row">
     <div class="col-12">
       <p>
         <strong>Descrição</strong><br><br>
         <%= @projeto.descricao %>
-      </p>
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-4"> 
-      <p>
-        <strong>Tipo</strong><br><br>
-        <%= @projeto.tipo %>
-      </p>
-    </div>
-
-    <div class="col-4">
-      <p>
-        <strong>Cliente</strong><br><br>
-        <%= @projeto.cliente_id %>
-      </p>
-    </div>
-
-    <div class="col-4"> 
-      <p>
-        <strong>Prazo</strong><br><br>
-        <%= @projeto.prazo %>
       </p>
     </div>
   </div>
@@ -69,43 +72,32 @@
 <hr>
 
 <div class="container-fluid" style="margin-top:8rem">
+
   <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
+    <li class="nav-item">
       <a class="nav-link active" id="obs-tab" data-toggle="tab" href="#obs" role="tab" aria-controls="obs" aria-selected="true">Observações</a>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item">
+      <a class="nav-link" id="tarefas-tab" data-toggle="tab" href="#tarefas" role="tab" aria-controls="tarefas" aria-selected="false">Tarefas e atividades</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" id="orcamento-tab" data-toggle="tab" href="#orcamento" role="tab" aria-controls="orcamento" aria-selected="false">Orçamento</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="tarefas-tab" data-toggle="tab" href="#tarefas" role="tab" aria-controls="tarefas" aria-selected="false">Tarefas</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="atividades-tab" data-toggle="tab" href="#atividades" role="tab" aria-controls="atividades" aria-selected="false">Atividades</a>
-    </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item">
       <a class="nav-link" id="condicionantes-tab" data-toggle="tab" href="#condicionantes" role="tab" aria-controls="condicionantes" aria-selected="false">Condicionantes</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="gerenciamento-tab" data-toggle="tab" href="#gerenciamento" role="tab" aria-controls="gerenciamento" aria-selected="false">Gerenciamento</a>
+    <li class="nav-item">
+      <a class="nav-link" id="gerenciar-tab" data-toggle="tab" href="#gerenciar" role="tab" aria-controls="gerenciar" aria-selected="false">Gerenciar</a>
     </li>
   </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="obs" role="tabpanel" aria-labelledby="obs-tab">
-      <div class="container">
-        <%= render 'orcamento', projeto: @projeto %>
-      </div>
-    </div>
-    <div class="tab-pane" id="orcamento" role="tabpanel" aria-labelledby="orcamento-tab">
-      <div class="container">
-        <%= render 'orcamento', projeto: @projeto %>
-      </div>
-    </div>
-    <div class="tab-pane" id="tarefas" role="tabpanel" aria-labelledby="tarefas-tab">2</div>
-    <div class="tab-pane" id="gerenciamento" role="tabpanel" aria-labelledby="atividades-tab">3</div>
-    <div class="tab-pane" id="condicionantes" role="tabpanel" aria-labelledby="condicionantes-tab">4</div>
-    <div class="tab-pane" id="gerenciamento" role="tabpanel" aria-labelledby="gerenciamento-tab">5</div>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="obs" role="tabpanel" aria-labelledby="obs-tab"><%= render 'observacoes', projeto: @projeto %></div>
+    <div class="tab-pane fade" id="tarefas" role="tabpanel" aria-labelledby="tarefas-tab">...</div>
+    <div class="tab-pane fade" id="orcamento" role="tabpanel" aria-labelledby="orcamento-tab"><%= render 'orcamento', projeto: @projeto %></div>
+    <div class="tab-pane fade" id="condicionantes" role="tabpanel" aria-labelledby="condicionantes-tab">...</div>
+    <div class="tab-pane fade" id="gerenciar" role="tabpanel" aria-labelledby="gerenciar-tab">...</div>
   </div>
+
 </div>
 
 <script>
@@ -120,7 +112,7 @@
   }
 
   .nav{
-    font-size: 22px !important;
+    font-size: 1.2rem !important;
   }
 </style>
 

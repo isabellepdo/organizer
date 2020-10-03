@@ -28,7 +28,7 @@ class ProjetosController < ApplicationController
 
     respond_to do |format|
       if @projeto.save
-        format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }
+        format.html { redirect_to @projeto, notice: 'Projeto criado com sucesso.' }
         format.json { render :show, status: :created, location: @projeto }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class ProjetosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def projeto_params
-      params.require(:projeto).permit(:codigo, :nome, :descricao, :status, :tipo)
+      params.require(:projeto).permit(:codigo, :nome, :descricao, :status, :tipo_de_projeto_id, :cliente_id, :prazo)
     end
 end
