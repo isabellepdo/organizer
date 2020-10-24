@@ -1,0 +1,17 @@
+<div class="container">
+  <br>
+  <br>
+  <% ObservacaoDoProjeto.where(projeto_id: @projeto.id).order(created_at: :desc).each do |observacao_do_projeto| %>
+    <div class="card text-white bg-success mb-3">
+      <div class="card-header"><h5><%= observacao_do_projeto.user.email %></h5></div>
+      <div class="card-body">
+        <p style="font-size:18px!important" class="card-text"><%= observacao_do_projeto.mensagem %></p>
+      </div>
+      <div class="card-footer text-right"><%= observacao_do_projeto.created_at.strftime("%d/%m/%Y - %H:%M") %></div>
+    </div>
+  <% end %>
+
+  <br>
+  <%= render 'formobs', observaco: @observaco %>
+
+</div>

@@ -3,6 +3,8 @@ class TarefaDoProjeto < ApplicationRecord
   belongs_to :tarefa
   belongs_to :projeto
 
+  has_many :atividade_da_tarefa_por_projetos
+
   enum status: {
     em_espera: 0,
     iniciada: 1, 

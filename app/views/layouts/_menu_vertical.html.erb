@@ -1,22 +1,14 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
-    <!--<div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-      <div class="media-body">
-        <h4 class="m-0"><%= current_user.email %></h4>
-        <p class="font-weight-light text-muted mb-0">Web developer</p>
-      </div>
-    </div>-->
-
-    
 
     <div class="media-body">
         <h3>Organizer</h3>
-        <h5 class="m-0"><%= current_user.email %></h5>
-        <h6 class="font-weight-light text-muted mb-0">Administrador</h6>
-
+        
         <hr>
         <% if user_signed_in? %>
+            <h5 class="m-0"><%= current_user.email %></h5>
+            <h6 class="font-weight-light text-muted mb-0">Administrador</h6>
             <div  style="margin-left: 30px">
                 <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'btn btn-info' %>
                 <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'btn btn-danger'%>
@@ -30,7 +22,7 @@
     </div>
   </div>
   
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="overflow-y:auto">
       <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Alertas</a>
       <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Quadro de Atividades</a>
       
